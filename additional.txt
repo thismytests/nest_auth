@@ -1,0 +1,7 @@
+sudo docker exec -it 773 /bin/bash
+
+mysql -u [user] -p [database_name] < [filename].sql
+
+
+mysql -u root  -p dbgnp_gnp < /backup/dbgnp_gnp.dmp
+mysql -u root  -p dbgnp_gnp < /backup/dbgnp_gnp.dmp
