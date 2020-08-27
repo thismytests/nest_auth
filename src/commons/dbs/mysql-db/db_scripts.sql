@@ -1,5 +1,5 @@
 ALTER table users
-	MODIFY last_visit datetime null default,
+	MODIFY last_visit datetime null default null,
 	MODIFY logout datetime null default null,
     MODIFY last_activity datetime null default null,
     MODIFY last_entry_date datetime null default null,

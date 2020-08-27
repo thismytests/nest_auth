@@ -15,7 +15,7 @@ export class UserService {
   }
 
   async findByUserName(username: string) {
-    return this.userRepository.find({
+    return this.userRepository.findOne({
       where: {
         username,
       },

@@ -30,13 +30,14 @@ export class LoginController {
   async login(@Body() body: UserDto) {
     const { login, password } = body;
 
-     // todo.. N.Litvin ... will be removed!!!!
+    // todo.. N.Litvin ... will be removed!!!!
     if (login !== 'mitchell' && password !== 'password') {
       return new UnauthorizedException();
     }
-    const dbUsers = await this.userService.findByUserName(login);
+    const dbUser = await this.userService.findByUserName(login);
 
-    if (dbUsers.length !== 0) {
+    if (dbUser) {
+      // todo.. N.Litvin ... will be login!!
       return this.authService.login(login);
     } else {
       return new UnauthorizedException();

@@ -6,8 +6,9 @@ import { JwtService } from '@nestjs/jwt';
 export class AuthService {
   constructor(
     private usersService: UsersService,
-    private jwtService: JwtService
-  ) {}
+    private jwtService: JwtService,
+  ) {
+  }
 
 
   async validateUser(username: string, pass: string): Promise<any> {
@@ -19,14 +20,20 @@ export class AuthService {
     return null;
   }
 
-  async parseToken(token: string): Promise<any>{
-    return Promise.resolve('eeee')
+  async parseToken(token: string) {
+    return this.jwtService.decode(token, { complete: true, json: true });
   }
 
-  async login(user: any) {
-    const payload = { username: user.username, sub: user.userId };
+  async login(id: string) {
+    const payload = { id: id };
+
+
     return {
       access_token: this.jwtService.sign(payload),
+      // todo.. N.Litvin ... will be from db
+      user: {
+        name: 'Michel',
+      },
     };
   }
 }
