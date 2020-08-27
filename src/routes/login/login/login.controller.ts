@@ -6,6 +6,7 @@ import { AuthService } from 'src/auth/auth.service';
 // db
 import { UserService } from 'src/commons/dbs/mysql-db/users';
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+import { checkServerIdentity } from 'tls';
 
 
 export class UserDto {
@@ -29,19 +30,7 @@ export class LoginController {
   @Post()
   async login(@Body() body: UserDto) {
     const { login, password } = body;
-
-    // todo.. N.Litvin ... will be removed!!!!
-    if (login !== 'mitchell' && password !== 'password') {
-      return new UnauthorizedException();
-    }
     const dbUser = await this.userService.findByUserName(login);
-
-    if (dbUser) {
-      // todo.. N.Litvin ... will be login!!
-      return this.authService.login(login);
-    } else {
-      return new UnauthorizedException();
-    }
-
+    return this.authService.login(login);
   }
 }
