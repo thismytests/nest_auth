@@ -11,13 +11,6 @@ export class Users {
   @ApiProperty()
   id: number;
 
-  @Column({
-    nullable: true,
-    type: 'datetime',
-    // default: 'CURRENT_TIMESTAMP()'
-  })
-  last_visit: string;
-
   @Column({})
   username: string;
 }

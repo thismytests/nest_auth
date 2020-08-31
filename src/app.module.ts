@@ -6,7 +6,6 @@ import { ConfigModule } from 'src/commons/config';
 import { AppLogger } from 'src/commons/logger';
 
 // routes
-import { GivingStoriesModule } from './routes/giving-stories';
 import { LoginModule } from './routes/login';
 
 
@@ -16,7 +15,6 @@ import { LoginModule } from './routes/login';
     ConfigModule,
 
     // routes
-    GivingStoriesModule,
     LoginModule,
   ],
   providers: [AppLogger],
