@@ -19,7 +19,7 @@ services:
       # Where our data will be persisted
 
     volumes:
-      - my-db:/var/lib/mysql
+      - my-db:/var/lib/postgres
        # ATTENTION HANUI
       - /home/u71:/backup
 # Names our volume

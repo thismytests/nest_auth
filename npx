@@ -1,0 +1,4 @@
+Applying required actions...
+
+  ↓ [MANUAL_REAPPLY] schema\init\service_user.sql (change:init_20190619_1)
+  ↓ [MANUAL_PULL] function:show_create_table (resource:function:show_create_table)
