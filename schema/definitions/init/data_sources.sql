@@ -1,3 +1,11 @@
--- sometimes users want to provision their databases with some initial values or ensure something exists in the database
-INSERT INTO data_source (name) VALUES ('FOOGLE') ON DUPLICATE KEY UPDATE name=name; -- on duplicate do nothing -> upsert the static entity
-INSERT INTO data_source (name) VALUES ('MAPCREST') ON DUPLICATE KEY UPDATE name=name; -- on duplicate do nothing -> upsert the static entity
+CREATE TABLE test (
+  -- meta
+  id              serial primary key,
+  created_at      timestamp DEFAULT CURRENT_TIMESTAMP,
+
+  -- static
+  name            VARCHAR(128) NOT NULL,
+
+  -- meta meta
+  CONSTRAINT data_source_ux1 UNIQUE (name)
+)

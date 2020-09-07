@@ -3,8 +3,8 @@ dialect: 10.7
 connection: ./control.connection.js
 strict: true # true by default; false -> don't track uncontrolled resources
 definitions:
-  - ./definitions/tables.yml
-  - ./definitions/views.yml
-  - ./definitions/functions.yml
+#  - ./definitions/tables.yml
+#  - ./definitions/views.yml
+#  - ./definitions/functions.yml
 #  - ./definitions/procedures.yml
   - ./definitions/init.yml
