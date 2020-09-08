@@ -24,14 +24,19 @@ export class AuthService {
     return this.jwtService.decode(token, { complete: true, json: true });
   }
 
-  async login(id: string) {
-    const payload = { id: id };
+  async login(login: string, name: string): Promise<{
+    access_token: string,
+    user: {
+      name: string,
+    }
+  }> {
+    const payload = { id: login };
 
     return {
       access_token: this.jwtService.sign(payload),
       // todo.. N.Litvin ... will be from db
       user: {
-        name: id,
+        name,
       },
     };
   }

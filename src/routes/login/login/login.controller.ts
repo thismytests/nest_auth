@@ -27,7 +27,7 @@ export class LoginController {
     const dbUser = await this.userService.findUserByLoginAndPassword(login, password);
 
     if (dbUser) {
-      return this.authService.login(dbUser.login);
+      return this.authService.login(dbUser.login, dbUser.firstname);
     }
 
   }

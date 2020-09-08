@@ -13,7 +13,8 @@ export class UserService {
   async findUserByLoginAndPassword(login: string, password: string): Promise<{
     id: number,
     login: string,
-    password: string
+    password: string,
+    firstname: string,
   }> {
     return this.userRepository.findOne({
       where: {
