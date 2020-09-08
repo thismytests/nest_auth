@@ -1,11 +1,9 @@
-CREATE TABLE test (
-  -- meta
-  id              serial primary key,
-  created_at      timestamp DEFAULT CURRENT_TIMESTAMP,
-
-  -- static
-  name            VARCHAR(128) NOT NULL,
-
-  -- meta meta
-  CONSTRAINT data_source_ux1 UNIQUE (name)
-)
+-- todo ... Nick Litvin ... will be removed in production. Ask A.Racheck
+INSERT INTO users
+(login, password, firstName, lastName)
+SELECT 'login',  'password', 'firstName', 'lastName'
+WHERE
+    NOT EXISTS(
+        SELECT login, password FROM users
+        WHERE password = 'password' and login='login'
+    )

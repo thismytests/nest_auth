@@ -4,7 +4,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 
 @Entity({
-  synchronize: true,
+  synchronize: false,
 })
 export class Users {
   @PrimaryGeneratedColumn()
@@ -12,5 +12,14 @@ export class Users {
   id: number;
 
   @Column({})
-  username: string;
+  login: string;
+
+  @Column({})
+  password: string;
+
+  @Column({})
+  firstname: string;
+
+  @Column({})
+  lastname: string;
 }

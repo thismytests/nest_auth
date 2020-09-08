@@ -27,12 +27,11 @@ export class AuthService {
   async login(id: string) {
     const payload = { id: id };
 
-
     return {
       access_token: this.jwtService.sign(payload),
       // todo.. N.Litvin ... will be from db
       user: {
-        name: 'Michel',
+        name: id,
       },
     };
   }

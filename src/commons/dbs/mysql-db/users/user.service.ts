@@ -10,14 +10,15 @@ export class UserService {
   ) {
   }
 
-  async findAll(): Promise<Users[]> {
-    return this.userRepository.find();
-  }
-
-  async findByUserName(username: string) {
+  async findUserByLoginAndPassword(login: string, password: string): Promise<{
+    id: number,
+    login: string,
+    password: string
+  }> {
     return this.userRepository.findOne({
       where: {
-        username,
+        login,
+        password,
       },
     });
   }
